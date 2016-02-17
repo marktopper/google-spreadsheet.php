@@ -1,12 +1,14 @@
-<?php
+<?php namespace Mitni\Google;
+
 
 /**
  * Google_Spreadsheet_Client
  * -------------------------
  * @class Client to authenticate and send request to Google service
  */
+use Mitni\Google\GoogleSpreadsheetFile;
 
-class Google_Spreadsheet_Client {
+class GoogleSpreadsheetClient {
 
     private $client = null; // Google_Client instance
 
@@ -152,10 +154,10 @@ class Google_Spreadsheet_Client {
     }
 
     /**
-     * Get Google_Spreadsheet_File instance by id
+     * Get GoogleSpreadsheetFile instance by id
      * @param {String} $file_id
      */
     public function file($file_id){
-        return new Google_Spreadsheet_File($file_id, $this);
+        return new GoogleSpreadsheetFile($file_id, $this);
     }
 }

@@ -1,15 +1,15 @@
-<?php
+<?php namespace Mitni\Google;
 
 /**
- * Google_Spreadsheet_Sheet
+ * GoogleSpreadsheetSheet
  * ------------------------
  * @class Instance represents Google Spreadsheet's sheet
  */
 
-class Google_Spreadsheet_Sheet {
+class GoogleSpreadsheetSheet {
 
 	private $meta = null; // Meta info of the sheet
-	private $client = null; // Google_Spreadsheet_Client instance
+	private $client = null; // GoogleSpreadsheetClient instance
 	private $link = array(); // Collection of links
 
 	public $fields = null; // Fields of table
@@ -42,7 +42,7 @@ class Google_Spreadsheet_Sheet {
 	 * Fetch the table data
 	 *
 	 * @param {Boolean} $force ... Ignore cache data or not
-	 * @return {Google_Spreadsheet_Sheet} ... This
+	 * @return {GoogleSpreadsheetSheet} ... This
 	 */
 	public function fetch($force = false){
 		$data = $this->client->request($this->link["cellsfeed"], "GET", array(), null, $force);
@@ -140,10 +140,46 @@ class Google_Spreadsheet_Sheet {
 				$this->fields[$c] = $content;
 				continue;
 			}
+			
+
+
+			/**
+			* Stopped working
+			*/
+			/*
 			if($this->fields[$c]){
 				$this->items[$r] = is_array($this->items[$r]) ? $this->items[$r] : array();
 				$this->items[$r][$this->fields[$c]] = $content;
 			}
+			*/
+
+
+			/**
+			*
+			* New items array
+			*/
+			$cell = $col['gs$cell'];
+			$row = $cell['row'];
+			$colNum 	= $cell['col'];
+
+
+			// --- Grab the id
+			$id = $row - 1; 	// ---> set the row number as a default starting at the second row
+			if($row === 1 && $colNum === 1){
+				$id = $cell['$t']; 
+			}
+
+			// --- Fill out the item row
+			if($row !== 1){
+				$colLetter 	= $this->num2alpha[$colNum]; 
+				$colName 	= $this->fields[$colLetter]; 
+				$val = $cell['$t'];
+				
+				// ---> $this->items[$row][$colName] = $val;	---> instead of row as the key, let's use ID
+				$this->items[$id][$colName] = $val;	
+			}
+
+
 		}
 	}
 

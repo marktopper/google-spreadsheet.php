@@ -1,12 +1,14 @@
-<?php
+<?php namespace Mitni\Google;
 
 /**
- * Google_Spreadsheet_File
+ * GoogleSpreadsheetFile
  * -----------------------
  * @class Instance represents Google Spreadsheet's file
  */
 
-class Google_Spreadsheet_File {
+use Mitni\Google\GoogleSpreadsheetSheet;
+
+class GoogleSpreadsheetFile {
 
     private $client = null; // Google_Spreadsheet_Client
     private $id = null; // ID name for file
@@ -51,6 +53,6 @@ class Google_Spreadsheet_File {
                 break;
             }
         }
-        return new Google_Spreadsheet_Sheet($sheet, $this->client);
+        return new GoogleSpreadsheetSheet($sheet, $this->client);
     }
 }

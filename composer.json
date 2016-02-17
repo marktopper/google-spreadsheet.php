@@ -1,11 +1,14 @@
 {
-    "name": "mach3/google-spreadsheet",
-    "description": "Google spreadsheet client",
+    "name": "mitni/laravel-google-spreadsheet",
+    "description": "Google spreadsheet client for Laravel based off mach3ss@gmail.com",
     "require": {
         "google/apiclient": "1.*"
     },
     "autoload": {
-    	"classmap": ["src"]
+    	// "classmap": ["src"]
+        "psr-4" : {
+            "Mitni\\Google" : "src"
+        }
     },
     "license": "MIT",
     "authors": [
