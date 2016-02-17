@@ -8,6 +8,13 @@
  */
 use Mitni\Google\GoogleSpreadsheetFile;
 
+use \Google_Client;
+use \Google_Auth_AssertionCredentials;
+use \Google_Service_Drive;
+use \Google_Http_Request;
+use \Google_IO_Curl;
+
+
 class GoogleSpreadsheetClient {
 
     private $client = null; // Google_Client instance
