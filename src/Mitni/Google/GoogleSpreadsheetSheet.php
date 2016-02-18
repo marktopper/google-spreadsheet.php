@@ -226,6 +226,11 @@ class GoogleSpreadsheetSheet {
 				$id = $cell['$t']; 
 			}
 
+			// --- If new row, enter the row number
+			if($col === 1){
+				$this->items[$id]['row'] = $row;	
+			}
+
 			// --- Fill out the item row
 			if($row !== 1){
 				$colLetter 	= $this->num2alpha[$colNum]; 
