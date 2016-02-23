@@ -227,7 +227,7 @@ class GoogleSpreadsheetSheet {
 			}
 
 			// --- If new row, enter the row number
-			if($col === 1){
+			if($colNum === '1'){
 				$this->items[$id]['row'] = $row;	
 			}
 
