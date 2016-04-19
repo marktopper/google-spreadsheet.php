@@ -23,7 +23,9 @@ Google Spreadsheet Client for PHP. This requires "google/apiclient" package.
 ### 3. Access by PHP
 
 ```php
-$client = Google_Spreadsheet::getClient("the/path/to/credential.json");
+use Mitni\Google\GoogleSpreadsheet;
+
+$client = GoogleSpreadsheet::getClient("the/path/to/credential.json");
 // Get the file by file ID
 $file = $client->file("XXXxxxXXXXxxxXXXX");
 // Get the sheet by title
