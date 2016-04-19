@@ -20,7 +20,12 @@ Google Spreadsheet Client for PHP. This requires "google/apiclient" package.
 2. Authorize the email address, which is found as "client_email" in key file, to read and edit.
 3. Save the **file ID** from address bar.
 
-### 3. Access by PHP
+
+### 3.1 Composer
+composer require mitni/laravel-google-spreadsheet
+
+
+### 3.2 Access by PHP
 
 ```php
 use Mitni\Google\GoogleSpreadsheet;
