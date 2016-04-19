@@ -2,7 +2,8 @@
 # Google Spreadsheet Client for Laravel/PHP
 
 Originally forked from mach3/google-spreadsheet.php to work with Laravel 5.x (and correct namespacing)
-Google Spreadsheet Client for PHP. This requires "google/apiclient" package.
+
+Google Spreadsheet Client for Laravel/PHP. 
 
 
 ## Get started
@@ -24,6 +25,7 @@ Google Spreadsheet Client for PHP. This requires "google/apiclient" package.
 ### 3.1 Composer
 composer require mitni/laravel-google-spreadsheet
 
+This requires "google/apiclient" package, but that should be included by default. 
 
 ### 3.2 Access by PHP
 
